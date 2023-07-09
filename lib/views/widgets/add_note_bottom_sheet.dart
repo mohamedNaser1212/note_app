@@ -4,7 +4,6 @@ import 'package:notes_app/cubits/add_note_cubit.dart';
 
 import 'add_note_form.dart';
 
-
 class AddNoteBottomSheet extends StatelessWidget {
   const AddNoteBottomSheet({Key? key}) : super(key: key);
 
@@ -22,11 +21,14 @@ class AddNoteBottomSheet extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          return const AbsorbPointer(
-            absorbing: State is AddNoteLoading?true:false,
+          return  AbsorbPointer(
+            absorbing: State is AddNoteLoading ? true : false,
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: 16.0),
-              child: SingleChildScrollView(child: AddNoteForm()),
+              padding: EdgeInsets.only(
+                  left: 16.0,
+                  right: 16,
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: const SingleChildScrollView(child: AddNoteForm()),
             ),
           );
         },
