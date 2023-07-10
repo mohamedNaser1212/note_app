@@ -22,7 +22,7 @@ void initState(){
 
   @override
   Widget build(BuildContext context) {
-    return  const Padding(
+    return   Padding(
       padding: EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
         children: [
