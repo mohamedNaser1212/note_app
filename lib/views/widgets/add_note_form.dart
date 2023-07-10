@@ -29,19 +29,21 @@ class _AddNoteFormState extends State<AddNoteForm> {
             height: 32,
           ),
           CustomTextField(
-            hint: 'Title',
+
             onSaved: (value) {
               title = value;
             },
+            hint: 'Title',
           ),
           const SizedBox(
             height: 16,
           ),
           CustomTextField(
-            hint: 'content',
+
             onSaved: (value) {
               subtitle = value;
             },
+            hint: 'content',
 
             maxlines: 5,
           ),
