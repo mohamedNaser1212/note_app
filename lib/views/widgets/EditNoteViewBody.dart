@@ -6,6 +6,8 @@ import 'package:notes_app/models/note_model.dart';
 import 'package:notes_app/views/widgets/custom_app_bar.dart';
 import 'package:notes_app/views/widgets/custom_text_field.dart';
 
+import 'edit_note_colors_list_view.dart';
+
 class EditNoteViewBody extends StatefulWidget {
   const EditNoteViewBody({Key? key, required this.note}) : super(key: key);
   final NoteModel note;
@@ -19,7 +21,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
           const SizedBox(
@@ -36,7 +38,7 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             title: 'Edit Notes',
             icon: FontAwesomeIcons.check,
           ),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
           CustomTextField(
@@ -55,8 +57,11 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
             hint: widget.note.subtitle,
             maxlines: 5,
           ),
-          SizedBox(
-            height: 50,
+         const SizedBox(
+           height: 16,
+         ),
+           EditNoteColorList(
+            note: widget.note,
           ),
           // CustomButton(),
         ],
@@ -64,3 +69,4 @@ class _EditNoteViewBodyState extends State<EditNoteViewBody> {
     );
   }
 }
+
