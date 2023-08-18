@@ -9,9 +9,9 @@ import 'package:notes_app/views/widgets/custom_text_field.dart';
 import 'edit_note_colors_list_view.dart';
 
 class EditNoteViewBody extends StatefulWidget {
-  const EditNoteViewBody({Key? key, required this.note}) : super(key: key);
+  const EditNoteViewBody({Key? key, required this.note, required this.onSave}) : super(key: key);
   final NoteModel note;
-
+  final Function(NoteModel) onSave;
   @override
   State<EditNoteViewBody> createState() => _EditNoteViewBodyState();
 }

@@ -12,11 +12,11 @@ final void Function()? onPressed;
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Text(title,style: TextStyle(
+        Text(title,style: const TextStyle(
           fontSize: 28
         ),),
 
-        Spacer(),
+        const Spacer(),
         CustomIcon(
           onPressed: onPressed,
           icon: icon,

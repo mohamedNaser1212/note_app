@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:notes_app/cubits/notes_cubit/notes_cubit.dart';
+import 'package:notes_app/views/widgets/search_page.dart';
 
 import 'custom_app_bar.dart';
 import 'notes_list_view.dart';
@@ -14,29 +15,39 @@ class NotesViewBody extends StatefulWidget {
 }
 
 class _NotesViewBodyState extends State<NotesViewBody> {
-@override
-void initState(){
-  BlocProvider.of<NotesCubit>(context).fetchAllNotes();
-  super.initState();
-}
+  @override
+  void initState() {
+    BlocProvider.of<NotesCubit>(context).fetchAllNotes();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return   Padding(
-      padding: EdgeInsets.symmetric(horizontal: 24.0),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
         children: [
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
-          CustomAppBar(title: 'Notes',icon:Icons.search,),
-          Expanded(child: NoteListView())
-
-
+          CustomAppBar(
+            title: 'Notes',
+            icon: Icons.search,
+            onPressed: () {
+              final notesCubit = BlocProvider.of<NotesCubit>(context);
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SearchPage(yourNotesList: notesCubit.notes ?? []);
+                  },
+                ),
+              );
+            },
+          ),
+          const Expanded(child: NoteListView()),
         ],
       ),
     );
   }
 }
-
-
